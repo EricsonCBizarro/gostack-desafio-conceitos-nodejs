@@ -17,7 +17,7 @@ function logRequests(request, response, next) {
 
   console.time(logLabel);
 
-  next(); // Próximo middleware
+  next();
 
   console.timeEnd(logLabel);
 }
@@ -95,9 +95,6 @@ app.delete("/repositories/:id", (request, response) => {
   const repositoryIndex = repositories.findIndex(
     repository => repository.id === id
   );
-  
-  console.log('DEBUG: ',repositoryIndex)
-  console.log(repositories[repositoryIndex])
 
   repositories.splice(repositoryIndex, 1)
 
