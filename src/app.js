@@ -77,14 +77,13 @@ app.put("/repositories/:id", (request, response) => {
   );
 
   const repository = {
-    id: uuid(), 
+    ...repositories[repositoryIndex], 
     title,
     url,
-    techs,
-    likes: repositories[repositoryIndex].likes,
+    techs
   };
 
-  repositories[repositoryIndex] = repositories;
+  repositories[repositoryIndex] = repository;
 
   return response.json(repository)
 });
